@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Citizenship / ITAR Flag",
+  "version": "1.0.0",
+  "description": "Tints any page red when it mentions ITAR, US citizenship / security clearance requirements, or no F-1/J-1 sponsorship. Useful for job searches.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Citizenship / ITAR Flag",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
