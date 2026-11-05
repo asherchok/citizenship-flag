@@ -201,6 +201,9 @@
       if (hits > 0) ensureOverlay(labels);
       else removeOverlay();
     } finally {
+      // The observer callback runs after this function returns, so the flag alone
+      // can't hide our own edits. Discard them, or each scan triggers the next one.
+      observer?.takeRecords();
       mutating = false;
     }
   }
